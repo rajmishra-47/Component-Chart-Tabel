@@ -1,0 +1,105 @@
+.TABLE-1 {
+
+  /* border-radius: 5px; */
+
+  display: flex;
+  /* max-width: 500px;
+  max-height: 400px; */
+  justify-content: space-between;
+  width: 35%;
+  border-right: 2px solid black;
+  margin: 10px;
+}
+
+/* .c1 {
+  flex: 1;
+
+  padding-right: 10px;
+  width: 100%;
+} */
+
+.tabel1-content {
+  flex: 1;
+  width: 100%;
+  overflow: auto;
+}
+
+
+/* .canvas {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+} */
+
+
+
+/* .T2 {
+
+  border-radius: 5px;
+  padding: 15px;
+  display: flex;
+  max-width: 1000px;
+  max-height: 400px;
+} */
+
+
+
+
+.TableChart-3,.TableChart-2 {
+  display: flex;
+justify-content: space-between;
+margin: 10px;
+
+}
+
+.TableChart-2{
+  border-right: 2px solid black;
+}
+
+
+
+.Main{
+  display: flex;
+  /* flex-basis: auto; */
+  justify-content: space-between;
+
+
+  border: 2px solid black;
+
+
+}
+
+.both-class{
+  display: flex;
+  justify-content: space-around;
+  width: 70%;
+  /* border: 2px solid rgb(215, 39, 69); */
+  margin-left: 10px;
+}
+
+.co2
+{
+  height: 40px;
+border: 2px solid black;
+display: flex;
+align-items: center; /* Center items vertically */
+
+}
+
+.edit-buttons{
+  display: flex;
+  /* flex-direction:row; */
+  max-width: 150px;
+
+  max-height: 30px;
+  justify-content: space-between;
+}
+
+.edit-1{
+
+  height: 10px;
+}
+
+
+
+
