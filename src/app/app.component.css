@@ -1,181 +1,232 @@
-@import url('https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap');
+@import url("https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap");
 
-@import url('https://fonts.googleapis.com/css2?family=Noto+Sans:ital,wght@0,100..900;1,100..900&display=swap');
+@import url("https://fonts.googleapis.com/css2?family=Noto+Sans:ital,wght@0,100..900;1,100..900&display=swap");
 
 .TABLE-1 {
-
-  display: flex;
-  justify-content: space-between; 
+  display: block;
+  justify-content: space-between;
   width: 30%;
-  border-right: 1px solid black;
+  /* border-right: 2px solid black; */
   margin: 10px;
-  
 }
 
-
+.Values-1 {
+  margin-left: 10px;
+}
 
 .tabel1-content {
+  display: flex;
   flex: 1;
   width: 100%;
   overflow: auto;
-  margin-right: 40px;
+  /* margin-right: 40px; */
+  margin-left: 5px;
+  margin-top: 31px;
 }
-
 
 .tabel2-content {
   width: 100%;
   overflow: auto;
   margin-right: 20px;
-
-  margin-left: 30px;
+  display: flex;
+  /* margin-left: 30px; */
+  margin-top: 27px;
 }
 
 .tabel3-content {
   width: 100%;
   overflow: auto;
   margin-right: 20px;
-
-  margin-left: 30px;
+  display: flex;
+  margin-left: 3px;
+  margin-top: 27px;
 }
 
 
+.Val2
+{
+  margin-left: 23px;
+}
+
+
+.Val3 {
+  margin-left: 34px;
+}
 
 
 .TableChart-3 {
-  display: flex;
-justify-content: space-between;
-/* margin: 10px; */
-/* border: 2px solid black; */
-width: 50%;
-margin-left: 10px;
+  justify-content: space-between;
+  /* margin: 10px; */
+  /* border: 2px solid black; */
+  width: 50%;
+  margin-left: 10px;
 }
 
-.TableChart-2{
-  margin-left:10px;
-  border-right: 2px solid black;
-  display: flex;
+.TableChart-2 {
+  margin-left: 10px;
+  /* border-right: 2px solid black; */
   justify-content: space-between;
   width: 50%;
-  
+}
+.Card-Table-2 {
+  width: 100%;
+  display: flex;
+  align-items: flex-start;
+  justify-content: space-between;
+  margin-top: 2px;
+}
+
+.rightMargin{
+  height: 80px;
+  margin-top:25px;
+  border-right: 2px solid rgb(168, 166, 166);
+  width: 1px;
+  margin-right:20px;
+  margin-left: 10px;
+  /* margin-left: 10px; */
 }
 
 
+.rightMargin2{
+  height: 80px;
+  margin-top:20px;
+  border-right: 2px solid rgb(168, 166, 166);
+  width: 1px;
+  
+  margin-left: 20px;
+}
 
-.Main{
+
+.Card-Table-3{
+  display: flex;
+  align-items: center;
+}
+.Main {
   display: flex;
   /* justify-content: space-between; */
   flex-direction: row;
   border: 2px solid black;
   border-top: none;
+  border-bottom: none;
 }
-
-.both-class{
+.edit_button{
+  margin-right: 30px;
+}
+.both-class {
   display: flex;
   justify-content: space-between;
   width: 70%;
 
   border-right: 1px solid black;
-  
+
   /* height: 30%;  */
 }
 
-.co2
-{
+.co2 {
   height: 40px;
-border: 2px solid black;
-display: flex;
-align-items: center; 
-/* border-bottom: none; */
+  border: 2px solid black;
+  display: flex;
+  align-items: center;
+  /* border-bottom: none; */
 }
 
-.text{
-  font-family: 'Poppins';
+.text {
+  font-family: "Poppins";
   font-weight: 600;
-  font-size:16px;
+  font-size: 16px;
 }
 
-
-
-.edit-1{
+.edit-1 {
   height: 10px;
 }
 
-
-#MyChart-1{
-
-  
-  width: 150px;
+#MyChart-1 {
+  width: 90px;
 }
 
-
-
-#MyChart-2{
-
- 
-  width: 150px;
-
-
+#MyChart-2 {
+  height: auto;
+  width: 90px;
 }
-
-
-
-#MyChart-3{
-
+.Names-2{
+  margin-left: 24px;
+}
+/* .Canvas-2,.Canvas-1{
+  height: auto;
+  width: 89px;
+} */ 
+.Canvas-2{
+align-items: flex-start;
+}
+#MyChart-3 {
   margin-left: 20px;
-  width: 150px;
+  width: 90px;
 }
 
-.canvas{
+.canvas {
   position: relative;
+  display: flex;
+  align-items: flex-start;
+  margin-top: 2px;
 }
 
-.TextButton-1,.TextButton-2{
+.TextButton-1
+{
   display: flex;
   justify-content: space-between;
   margin-top: 10px;
   width: 100%;
+  margin-left: 10px;
+}
+
+.TextButton-2 {
+  display: flex;
+  justify-content: space-between;
+  margin-top: 10px;
+  width: 100%;
+  margin-left: 22px;
   /* position: relative;
   right: 0;
   top: 0;
   padding: 10%; */
 }
 
-
-
-
-
-
 .edit-box {
   padding: 10px;
-  margin: 0;
+  margin-top: 15px;
   background-color: #f1e9e9;
   box-sizing: border-box;
   border: 2px solid grey;
   color: #01ff2b;
-  height: 35px;
+  height: 20px;
   width: 50px;
   border-radius: 5px;
 }
 
-
-.Names{
-  font-family: 'Poppins';
+.Names {
+  font-family: "Poppins";
   font-weight: 500;
-  font-size:12px;
-
+  font-size: 12px;
 }
 
-
-.Font-1{
-  font-family: 'Noto Sans';
+.Font-1 {
+  font-family: "Noto Sans";
   font-weight: 400;
   font-size: 12px;
 }
 
-
-.Font-2{
-
-  font-family: 'Poppins';
+.Font-2 {
+  font-family: "Poppins";
   font-weight: 500;
-  font-size:12px;
+  font-size: 12px;
+}
+
+.Table-Chart-1 {
+  display: flex;
+  justify-content: space-between;
+}
+
+.container {
+  width: 75%;
+  border: 1px solid rgb(7, 7, 7);
 }
