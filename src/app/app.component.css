@@ -1,80 +1,81 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap');
+
+@import url('https://fonts.googleapis.com/css2?family=Noto+Sans:ital,wght@0,100..900;1,100..900&display=swap');
+
 .TABLE-1 {
 
-  /* border-radius: 5px; */
-
   display: flex;
-  /* max-width: 500px;
-  max-height: 400px; */
-  justify-content: space-between;
-  width: 35%;
-  border-right: 2px solid black;
+  justify-content: space-between; 
+  width: 30%;
+  border-right: 1px solid black;
   margin: 10px;
+  
 }
 
-/* .c1 {
-  flex: 1;
 
-  padding-right: 10px;
-  width: 100%;
-} */
 
 .tabel1-content {
   flex: 1;
   width: 100%;
   overflow: auto;
+  margin-right: 40px;
 }
 
 
-/* .canvas {
-  box-sizing: border-box;
-  margin: 0;
-  padding: 0;
-} */
+.tabel2-content {
+  width: 100%;
+  overflow: auto;
+  margin-right: 20px;
+
+  margin-left: 30px;
+}
+
+.tabel3-content {
+  width: 100%;
+  overflow: auto;
+  margin-right: 20px;
+
+  margin-left: 30px;
+}
 
 
 
-/* .T2 {
 
-  border-radius: 5px;
-  padding: 15px;
-  display: flex;
-  max-width: 1000px;
-  max-height: 400px;
-} */
-
-
-
-
-.TableChart-3,.TableChart-2 {
+.TableChart-3 {
   display: flex;
 justify-content: space-between;
-margin: 10px;
-
+/* margin: 10px; */
+/* border: 2px solid black; */
+width: 50%;
+margin-left: 10px;
 }
 
 .TableChart-2{
+  margin-left:10px;
   border-right: 2px solid black;
+  display: flex;
+  justify-content: space-between;
+  width: 50%;
 }
 
 
 
 .Main{
   display: flex;
-  /* flex-basis: auto; */
-  justify-content: space-between;
-
-
+  /* justify-content: space-between; */
+  flex-direction: row;
   border: 2px solid black;
-
-
+  border-top: none;
 }
 
 .both-class{
   display: flex;
-  justify-content: space-around;
+  justify-content: space-between;
   width: 70%;
-  /* border: 2px solid rgb(215, 39, 69); */
-  margin-left: 10px;
+
+  border-right: 1px solid black;
+  
+  /* height: 30%;  */
 }
 
 .co2
@@ -82,24 +83,89 @@ margin: 10px;
   height: 40px;
 border: 2px solid black;
 display: flex;
-align-items: center; /* Center items vertically */
-
+align-items: center; 
+/* border-bottom: none; */
 }
 
-.edit-buttons{
-  display: flex;
-  /* flex-direction:row; */
-  max-width: 150px;
-
-  max-height: 30px;
-  justify-content: space-between;
+.text{
+  font-family: 'Poppins';
+  font-weight: 600;
+  font-size:16px;
 }
+
+
 
 .edit-1{
-
   height: 10px;
 }
 
 
+#MyChart-1{
+
+  
+  width: 150px;
+}
 
 
+
+#MyChart-2{
+
+ 
+  width: 150px;
+
+
+}
+
+
+
+#MyChart-3{
+
+  margin-left: 20px;
+  width: 150px;
+}
+
+
+
+.TextButton-1,.TextButton-2{
+  display: flex;
+  justify-content: space-between;
+  margin-top: 10px;
+}
+
+
+
+
+.edit-box {
+  padding: 10px;
+  margin: 0;
+  background-color: #f1e9e9;
+  box-sizing: border-box;
+  border: 2px solid grey;
+  color: #01ff2b;
+  height: 35px;
+  width: 50px;
+  border-radius: 5px;
+}
+
+
+.Names{
+  font-family: 'Poppins';
+  font-weight: 500;
+  font-size:12px;
+
+}
+
+
+.Font-1{
+  font-family: 'Noto Sans';
+  font-weight: 400;
+  font-size: 12px;
+}
+
+
+.Font-2{
+
+  font-family: 'Poppins';
+  font-weight: 500;
+  font-size:12px;
+}

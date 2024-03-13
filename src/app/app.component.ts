@@ -10,6 +10,7 @@ import { MatTableModule } from '@angular/material/table';
 import { MatIconModule } from '@angular/material/icon';
 import { MatDividerModule } from '@angular/material/divider';
 import { MatButtonModule } from '@angular/material/button';
+import { Component3Component } from './component-3/component-3.component';
 // import { CommonModule } from '@angular/common';
 // import { RouterOutlet } from '@angular/router';
 import Chart from 'chart.js/auto';
@@ -20,17 +21,27 @@ import { AnyCatcher } from 'rxjs/internal/AnyCatcher';
 import { FormControl, Validators } from '@angular/forms';
 import { ReactiveFormsModule } from '@angular/forms';
 
+import { ComponentDropDownComponent } from './component-drop-down/component-drop-down.component';
+import { SharedService } from './shared.service';
+import { Subscription } from 'rxjs';
+
 @Component({
   selector: 'app-root',
   standalone: true,
-  imports: [CommonModule, RouterOutlet,FormsModule,MatButtonModule,MatDividerModule,MatFormFieldModule,MatIconModule,MatInputModule,MatSelectModule,MatTableModule,HttpClientModule,ReactiveFormsModule],
+  imports: [CommonModule, RouterOutlet,FormsModule,MatButtonModule,MatDividerModule,MatFormFieldModule,MatIconModule,MatInputModule,MatSelectModule,MatTableModule,HttpClientModule,ReactiveFormsModule,ComponentDropDownComponent,Component3Component],
   templateUrl: './app.component.html',
   styleUrl: './app.component.css'
 })
 export class AppComponent {
   title = 'tt';
+  clickEvent:Subscription
 
-  constructor(private http: HttpClient) {}
+  constructor(private http: HttpClient,private sharedService:SharedService,  ) {
+    this.clickEvent=this.sharedService.getEvent().subscribe(()=>{
+      this.applyChange()
+    })
+    
+  }
 
   a: number = 0;
   b: number = 0;
@@ -76,50 +87,49 @@ export class AppComponent {
 
   ngOnInit() {
 
+    console.log("Hello");
+    
     this.http.get('http://localhost:8000/showWell').subscribe((data: any) => {
       this.Wells = data;
 
-      this.WellsName = this.Wells.map((data: any) => data.wellname);
+      this.WellsName = this.Wells.map((data: any) => data.wname);
 
-      this.WellsVal = this.Wells.map((data: any) => Number(data.wellval));
+      this.WellsVal = this.Wells.map((data: any) => Number(data.wval));
 
       this.createChart2(this.WellsName, this.WellsVal);
-      this.createChart1(this.WellsName,this.WellsVal);
-      this.createChart3(this.WellsName,this.WellsVal);
+      // this.createChart1(this.WellsName,this.WellsVal);
+      // this.createChart3(this.WellsName,this.WellsVal);
+
+    });
+    
+    this.http.get('http://localhost:8000/showRes').subscribe((data: any) => {
+      this.Res = data;
+      this.ResName = this.Res.map((data: any) => data.resName);
+      this.ResVal = this.Res.map((data: any) => Number(data.resval));
+
+      this.createChart3(this.ResName, this.ResVal);
+
+      this.ResVal.forEach((e:number) => {
+        this.s2+=e
+      });
+
+      this.s1=100
+
+      this.Total=[ {name:'Site-1',Val:this.s1},
+
+                    {name:"Site-2",Val:this.s2}]
+
+
+
+      this.TotalName=this.Total.map((data:any)=>data.name)
+
+
+      this.TotalVal=this.Total.map((data:any)=>data.Val)
+
+      this.createChart1(this.TotalName,this.TotalVal)
 
     });
 
-    // this.http.get('http://localhost:8000/showRes').subscribe((data: any) => {
-    //   this.Res = data;
-    //   this.ResName = this.Res.map((data: any) => data.resName);
-    //   this.ResVal = this.Res.map((data: any) => Number(data.resval));
-
-    //   this.createChart3(this.ResName, this.ResVal);
-
-    //   this.ResVal.forEach((e:number) => {
-    //     this.s2+=e
-    //   });
-
-    //   console.log(this.s2);
-
-    //   this.Total=[ {name:'Site-1',Val:this.s1},
-
-    //                 {name:"Site-2",Val:this.s2}]
-
-
-    //                 console.log(this.Total);
-
-
-    //   this.TotalName=this.Total.map((data:any)=>data.name)
-
-
-    //   this.TotalVal=this.Total.map((data:any)=>data.Val)
-
-    //   this.createChart1(this.TotalName,this.TotalVal)
-
-    // });
-
-    // console.log(this.TotalVal);
   }
 
   createChart1(Label: any, Data: any) {
@@ -136,14 +146,17 @@ export class AppComponent {
             {
               label: Label,
               data: Data,
-              backgroundColor: ['Red', 'Blue', 'Green', 'Yellow'],
+              backgroundColor: ['#E6B056', '#DD2CC7'],
             },
           ],
         },
-        options: { aspectRatio:2.},
+        // options: { aspectRatio:2},
       });
     }
   }
+
+
+
   createChart2(Label: any, Data: any) {
     if (!this.chartDisabled) {
       if (this.chart2) {
@@ -158,11 +171,11 @@ export class AppComponent {
             {
               label: Label,
               data: Data,
-              backgroundColor: ['Red', 'Blue', 'Green', 'Yellow'],
+              backgroundColor: ['#B49566', '#DD2CC7', '#DD887C', '#4CA2A8'],
             },
           ],
         },
-        options: { aspectRatio: 2. },
+        // options: { aspectRatio: 2.5 },
       });
     }
   }
@@ -181,11 +194,11 @@ export class AppComponent {
             {
               label: Label,
               data: Data,
-              backgroundColor: ['Red', 'Blue', 'Green', 'Yellow'],
+              backgroundColor: ['#666EB4', '#AF74B9'],
             },
           ],
         },
-        options: { aspectRatio: 2.0 },
+        // options: { aspectRatio: 2.0 },
       });
     }
   }

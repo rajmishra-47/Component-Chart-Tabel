@@ -1,0 +1,13 @@
+.Main-1{
+    display: flex;
+    justify-content: space-between;
+
+    max-width: 45%;
+
+    margin-left: 30px;
+}
+
+
+.button-1{
+    padding:10px
+}

@@ -1,0 +1,60 @@
+<div class="container-1">
+
+    <div class="Main-1">
+
+      <div class="TextContainer-1"><p>Total CO2 Stored</p></div>
+      <hr>
+
+      <div class="NumberImage-1">
+      
+        <div class="number"><p>111111</p></div>
+
+        <div class="Image-1"><img src="../Image/Image-1.png" alt="Image"></div>
+      
+      </div>
+
+      <div class="Tabel-Conatiner-1">
+        <table
+        mat-table
+        [dataSource]="foods"
+        class="mat-elevation-z0"
+        matSort
+        
+      >
+        <ng-container matColumnDef="lable">
+          <th
+            mat-header-cell
+            *matHeaderCellDef
+            mat-sort-header
+            class="col-headers"
+          >
+            <span class="sz1"></span>
+          </th>
+          <td mat-cell *matCellDef="let element">
+            <span class="Font-1">{{ element.viewValue }}</span>
+          </td>
+        </ng-container>
+
+        <ng-container matColumnDef="num">
+          <th mat-header-cell *matHeaderCellDef>
+            <span class="sz1"></span>
+          </th>
+          <td mat-cell *matCellDef="let element">
+        
+            <span class="Font-2">{{element.value }}</span>
+          
+          </td>
+        </ng-container>
+
+        <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+        <tr
+          mat-row
+          *matRowDef="let row; columns: displayedColumns"
+          
+        ></tr>
+      </table>
+      </div>
+    
+      </div>
+
+  </div>
