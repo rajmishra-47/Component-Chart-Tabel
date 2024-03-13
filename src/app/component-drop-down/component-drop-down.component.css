@@ -8,6 +8,53 @@
 }
 
 
+.Upper-text{
+    font-weight: bold;
+    font-size: xx-large;
+  }
+
+
+  .Lpper-text{
+    
+    font-size: medium;
+    font-weight: bold;
+  }
+
+.Display-Text{
+    display: flex;
+    justify-content: space-between;
+
+    max-width: 24.4%;
+
+    margin-left: 40px;
+
+    font-size: medium;
+
+    font-weight: 500;
+}
+
+
 .button-1{
     padding:10px
+}
+
+.BTN-1::before{
+    opacity: 0.5;
+    cursor: not-allowed;
+    cursor: not-allowed;
+    background-color: #147d64;
+    color: white;
+}
+
+.BTN-1:hover{
+    opacity: 0.5;
+    cursor: not-allowed;
+    cursor: not-allowed;
+    background-color: #147d64;
+    color: white;
+}
+
+.text-Field{
+    padding: 10px;
+    margin-left: 32px;
 }

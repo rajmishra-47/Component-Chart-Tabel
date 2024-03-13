@@ -9,46 +9,36 @@ import { MatTableModule } from '@angular/material/table';
 import { MatIconModule } from '@angular/material/icon';
 import { MatDividerModule } from '@angular/material/divider';
 import { MatButtonModule } from '@angular/material/button';
-import { Component3Component } from './component-3/component-3.component';
 import Chart from 'chart.js/auto';
 import { HttpClientModule, HttpClient } from '@angular/common/http';
 import { AnyCatcher } from 'rxjs/internal/AnyCatcher';
 import { FormControl, Validators } from '@angular/forms';
 import { ReactiveFormsModule } from '@angular/forms';
-import { ComponentDropDownComponent } from './component-drop-down/component-drop-down.component';
-import { SharedService } from './shared.service';
 import { Subscription } from 'rxjs';
-import { GraphTableComponent } from './graph-table/graph-table.component';
-import { tap } from 'rxjs/operators';
 
 @Component({
-  selector: 'app-root',
+  selector: 'app-graph-table',
   standalone: true,
-  imports: [CommonModule, RouterOutlet,FormsModule,MatButtonModule,MatDividerModule,MatFormFieldModule,MatIconModule,MatInputModule,MatSelectModule,MatTableModule,HttpClientModule,ReactiveFormsModule,ComponentDropDownComponent,Component3Component,GraphTableComponent],
-  templateUrl: './app.component.html',
-  styleUrl: './app.component.css'
+  imports: [CommonModule, RouterOutlet,FormsModule,MatButtonModule,MatDividerModule,MatFormFieldModule,MatIconModule,MatInputModule,MatSelectModule,MatTableModule,HttpClientModule,ReactiveFormsModule],
+  templateUrl: './graph-table.component.html',
+  styleUrl: './graph-table.component.css'
 })
-export class AppComponent {
-  title = 'tt';
-  clickEvent:Subscription
+export class GraphTableComponent {
 
-  constructor(private http: HttpClient,private sharedService:SharedService,  ) {
-    this.clickEvent=this.sharedService.getEvent().subscribe(()=>{
-      this.applyChange()
-    })
-    
-  }
+  title = 'tt';
+  
+  constructor(private http: HttpClient ) {}
 
   a: number = 0;
   b: number = 0;
 
   Wells: any;
   WellsName: any;
-  WellsVal: number[]=[];
+  WellsVal: any;
 
   Res: any;
   ResName: any;
-  ResVal: number[]=[];
+  ResVal: any=[];
 
   TotalName: any ;
   TotalVal: any;
@@ -96,11 +86,8 @@ export class AppComponent {
       this.WellsVal = this.Wells.map((data: any) => Number(data.wval));
 
       this.createChart2(this.WellsName, this.WellsVal);
-      
-
-      this.WellsVal.forEach((e:number) => {
-        this.s1+=e
-      });
+      // this.createChart1(this.WellsName,this.WellsVal);
+      // this.createChart3(this.WellsName,this.WellsVal);
 
 
 
@@ -120,7 +107,9 @@ export class AppComponent {
         this.s2+=e
       });
 
-  
+      this.s1=100
+
+
 
       this.Total=[ {name:'Storage Site-1',Val:this.s1},
 
@@ -136,12 +125,6 @@ export class AppComponent {
       this.createChart1(this.TotalName,this.TotalVal)
 
     });
-
-    console.log( typeof this.ResVal);
-
-    console.log( typeof this.WellsVal);
-    
-    
 
   }
 
@@ -233,18 +216,6 @@ export class AppComponent {
 
     this.WellsVal.forEach((num:any)=> this.s1+=num)
 
-    try{
-      for (let i = 0; i < 4; i++) {
-        this.http.post(`http://localhost:8000/postWell/${this.WellsVal[i]}/${this.WellsName[i]}`,{},{responseType:'text'}).subscribe((data:any)=> console.log(data)
-        )
-        console.log("Sent",this.WellsVal[i]);  
-      }
-     }
-     catch(err)
-     {
-      console.log(err);
-     }
-
   
     this.Total=[ {name:'Site-1',Val:this.s1},
 
@@ -255,11 +226,13 @@ export class AppComponent {
 
     this.TotalVal=this.Total.map((data:any)=>data.Val)
 
+
+
     this.createChart1(this.TotalName,this.TotalVal)
+    }
 
-  
-  }  
-
+      
+    
   }
 
   editButtonClicked2() {
@@ -282,12 +255,11 @@ export class AppComponent {
 
 
     this.ResVal.forEach((num:any)=> this.s2+=num)
-    
 
 
-    this.Total=[ {name:'Storage  Site-1',Val:this.s1},
+    this.Total=[ {name:'Site-1',Val:this.s1},
 
-                  {name:"Storage Site-2",Val:this.s2}]
+                  {name:"Site-2",Val:this.s2}]
 
 
     this.TotalName=this.Total.map((data:any)=>data.name)
@@ -295,22 +267,6 @@ export class AppComponent {
     this.TotalVal=this.Total.map((data:any)=>data.Val)
 
     this.createChart1(this.TotalName,this.TotalVal)
-
-
-    // try{
-    //   for (let i = 0; i < 4; i++) {
-    //     this.http.post(`http://localhost:8000/postRes/${this.ResVal[i]}/${(this.ResName[i])}`,{},{responseType:'text'}).subscribe((data:any)=> console.log(data)
-    //     )
-    //     console.log("Sent",this.ResVal[i]);  
-    //   }
-    //  }
-    //  catch(err)
-    //  {
-    //   console.log(err);
-    //  }
-
-
-    
     
   }
   

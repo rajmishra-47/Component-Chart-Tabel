@@ -6,7 +6,7 @@
   display: block;
   justify-content: space-between;
   width: 30%;
- 
+  /* border-right: 2px solid black; */
   margin: 10px;
 }
 
@@ -21,7 +21,7 @@
   flex: 1;
   width: 100%;
   overflow: auto;
-  
+  /* margin-right: 40px; */
   margin-left: 5px;
   margin-top: 31px;
 }
@@ -31,7 +31,7 @@
   overflow: auto;
   margin-right: 20px;
   display: flex;
-  
+  /* margin-left: 30px; */
   margin-top: 27px;
 }
 
@@ -58,14 +58,15 @@
 
 .TableChart-3 {
   justify-content: space-between;
-  
+  /* margin: 10px; */
+  /* border: 2px solid black; */
   width: 50%;
   margin-left: 10px;
 }
 
 .TableChart-2 {
   margin-left: 10px;
-  
+  /* border-right: 2px solid black; */
   justify-content: space-between;
   width: 50%;
 }
@@ -84,7 +85,7 @@
   width: 1px;
   margin-right:20px;
   margin-left: 10px;
- 
+  /* margin-left: 10px; */
 }
 
 
@@ -104,7 +105,7 @@
 }
 .Main {
   display: flex;
- 
+  /* justify-content: space-between; */
   flex-direction: row;
   border: 2px solid rgb(182, 181, 181);
   border-top: none;
@@ -120,7 +121,7 @@
 
   border-right: 1px solid black;
 
-  
+  /* height: 30%;  */
 }
 
 .parent{
@@ -136,7 +137,7 @@
   border: 2px solid rgb(206, 203, 203);
   display: flex;
   align-items: center;
- 
+  /* border-bottom: none; */
 }
 
 .text {
@@ -168,7 +169,10 @@
   font-weight: 400;
   font-size: 12px;
 }
-
+/* .Canvas-2,.Canvas-1{
+  height: auto;
+  width: 89px;
+} */ 
 .Canvas-2{
 align-items: flex-start;
 }
@@ -199,7 +203,10 @@ align-items: flex-start;
   margin-top: 10px;
   width: 100%;
   margin-left: 22px;
-
+  /* position: relative;
+  right: 0;
+  top: 0;
+  padding: 10%; */
 }
 
 .edit-box {
@@ -263,4 +270,3 @@ align-items: flex-start;
   font-weight: 400;
   font-size: 12px;
 }
-

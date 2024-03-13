@@ -3,13 +3,16 @@
 @import url('https://fonts.googleapis.com/css2?family=Noto+Sans:ital,wght@0,100..900;1,100..900&display=swap');
 
 .container-1{
-    width: 300px;
+    width: 100%;
     /* padding: 10px; */
     margin-left: 30px;
-    border: 2px solid black;
-
+    border: 0.5px solid grey;
+    border-radius: 5px;
     height: 100%;
+    background-color: white;
 }
+
+
 
 
 .Main-1{
@@ -28,11 +31,10 @@
     /* width: 100%; */
     display: flex;
     justify-content: space-between;
-    
-    padding-left: 10px;
-    padding-right: 10px;
-
-    padding-top: 10px;
+    width: 100%;
+    padding-left: 19px;
+    /* padding-right: 41px; */
+    padding-top: 29px;
 }
 
 
@@ -45,9 +47,12 @@
 }
 
 .Image-1{
-    height: 100%;
-    width: 100%;
-    text-align: right;
+    /* height: 100%; */
+    width: 80%;
+    /* text-align: right; */
+    /* padding-left: 10px; */
+
+    margin-left: 25px;
 }
 
 .Tabel-Conatiner-1{
@@ -57,7 +62,7 @@
 
 }
 
-.Font-1{
+/* .Font-1{
     font-family: 'Noto Sans';
     font-weight: 400;
     font-size: 12px;
@@ -67,6 +72,39 @@
   .Font-2{
   
     font-family: 'Poppins';
-    font-weight: 500;
+    font-weight: bold;
     font-size:12px;
+  } */
+
+
+  .text-1{
+    margin-left: 5px;
+    padding-top: 11px;
+  }
+
+  .text-2{
+    font-size: x-small;
+    margin-left: 10px;
+  }
+
+  .Img-2{
+    padding-left: 20px;
+    display: flex;
+  }
+
+  .Box-1{
+    display: flex;
+    justify-content: space-between;
+    font-size: larger;
+    margin-top: 20%;
+    width: 100%;
+  }
+
+
+  .Values-1{
+    font-weight:bold;
+  }
+
+  .image2{
+    margin-right: 20px;
   }

@@ -6,22 +6,19 @@ import { MatTableModule } from '@angular/material/table';
 import { MatIconModule } from '@angular/material/icon';
 import { MatDividerModule } from '@angular/material/divider';
 import { MatButtonModule } from '@angular/material/button';
+import { FormsModule } from '@angular/forms';
+import { CommonModule } from '@angular/common';
 
 @Component({
   selector: 'app-component-3',
   standalone: true,
-  imports: [MatInputModule,MatSelectModule,MatFormFieldModule,MatTableModule,MatIconModule,MatDividerModule,MatButtonModule],
+  imports: [MatInputModule,MatSelectModule,MatFormFieldModule,MatTableModule,MatIconModule,MatDividerModule,MatButtonModule,FormsModule,CommonModule],
   templateUrl: './component-3.component.html',
   styleUrl: './component-3.component.css'
 })
 export class Component3Component {
 
-  displayedColumns: string[] = ['lable', 'num'];
+Names=['Captured','Injected']
+Values=[111111,111111]
 
-
-  foods = [
-    {value: '0', viewValue: 'A'},
-    {value: '1', viewValue: 'B'},
-    {value: '2', viewValue: 'C'}
-  ];
 }

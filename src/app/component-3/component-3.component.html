@@ -1,60 +1,40 @@
 <div class="container-1">
+  <div class="Main-1">
+    <div class="TextContainer-1"><p class="text-1">Total CO2 Stored</p></div>
+    <hr />
 
-    <div class="Main-1">
+    <div class="NumberImage-1">
 
-      <div class="TextContainer-1"><p>Total CO2 Stored</p></div>
-      <hr>
+      <div class="number"><p>111111 Tons</p></div>
 
-      <div class="NumberImage-1">
+     
+      <div class="Image-1">
       
-        <div class="number"><p>111111</p></div>
-
-        <div class="Image-1"><img src="../Image/Image-1.png" alt="Image"></div>
+        <img src="../../assets/Image/Image-1.png" alt="Image" />
       
-      </div>
-
-      <div class="Tabel-Conatiner-1">
-        <table
-        mat-table
-        [dataSource]="foods"
-        class="mat-elevation-z0"
-        matSort
-        
-      >
-        <ng-container matColumnDef="lable">
-          <th
-            mat-header-cell
-            *matHeaderCellDef
-            mat-sort-header
-            class="col-headers"
-          >
-            <span class="sz1"></span>
-          </th>
-          <td mat-cell *matCellDef="let element">
-            <span class="Font-1">{{ element.viewValue }}</span>
-          </td>
-        </ng-container>
-
-        <ng-container matColumnDef="num">
-          <th mat-header-cell *matHeaderCellDef>
-            <span class="sz1"></span>
-          </th>
-          <td mat-cell *matCellDef="let element">
-        
-            <span class="Font-2">{{element.value }}</span>
-          
-          </td>
-        </ng-container>
-
-        <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
-        <tr
-          mat-row
-          *matRowDef="let row; columns: displayedColumns"
-          
-        ></tr>
-      </table>
       </div>
     
+    </div>
+
+    <div class="Img-2">
+
+    <img src="../../assets/Image/MicrosoftTeams-image (1).png" alt="">
+      <!-- <p class="text-2">vs qtr target</p> -->
+      <span style="font-size: x-small;">vs qtr target</span>
+      
+    </div>
+
+    <div class="Tabel-Conatiner-1">
+
+      <div class="Box-1">
+
+        <div class="Names-1"><p *ngFor="let item of Names">{{item}}</p></div>
+
+
+        <div class="Values-1" ><p *ngFor="let item of Values">{{item}}</p></div>
+        
       </div>
 
+    </div>
   </div>
+</div>

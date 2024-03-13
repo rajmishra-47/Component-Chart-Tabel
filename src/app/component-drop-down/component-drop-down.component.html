@@ -1,27 +1,38 @@
+<div class="text-Field">
 
+<p class="Upper-text">Cloverfield Project Insights</p>
+
+<p class="Lower-Text">{{ day }}, {{ Month }} {{ Date }}th, {{ Year }}</p>
+
+</div>
+
+<div class="Display-Text">
+  <span>Projects</span>
+  <span>Type of Insites</span>
+</div>
 
 <div class="Main-1">
 
-    <div class="option-1">
+    <div class="option-1" > 
 
-        
-<mat-form-field>
-  <mat-label>Project</mat-label>
-  <mat-select>
+<mat-form-field class='select-1' >
+
+  <mat-label>Cloverfield</mat-label>
+  <mat-select [disabled]="true">
     @for (food of foods; track food) {
       <mat-option [value]="food.value">{{food.viewValue}}</mat-option>
     }
   </mat-select>
+  
 </mat-form-field>
     
 </div>
 
-    <div class="option-2">
 
-       
-<mat-form-field>
-  <mat-label>Type of insight</mat-label>
-  <mat-select>
+<div class="option-2">
+<mat-form-field class="rounded-form-field">
+  <mat-label>Type of storage</mat-label>
+  <mat-select [disabled]="true">
     @for (food of foods; track food) {
       <mat-option [value]="food.value">{{food.value}}</mat-option>
     }
@@ -32,6 +43,6 @@
 
 
     <div class="button-1">
-        <button mat-raised-button color="primary" >Apply changes</button>
+        <button mat-raised-button style="background-color: #147d64; color: white;"  class="BTN-1" >Apply changes</button>
     </div>
 </div>
