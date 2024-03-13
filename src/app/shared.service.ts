@@ -9,7 +9,8 @@ export class SharedService {
   private subject =new Subject<any>();
 
   sendEvent(){
-this.subject.next();
+
+this.subject.next(0);
   }
 
   getEvent():Observable<any>{
