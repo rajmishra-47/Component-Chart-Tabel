@@ -20,37 +20,48 @@ import { SharedService } from './shared.service';
 import { Subscription } from 'rxjs';
 import { GraphTableComponent } from './graph-table/graph-table.component';
 import { tap } from 'rxjs/operators';
+import { response } from 'express';
 
 @Component({
   selector: 'app-root',
   standalone: true,
-  imports: [CommonModule, RouterOutlet,FormsModule,MatButtonModule,MatDividerModule,MatFormFieldModule,MatIconModule,MatInputModule,MatSelectModule,MatTableModule,HttpClientModule,ReactiveFormsModule,ComponentDropDownComponent,Component3Component,GraphTableComponent],
+  imports: [
+    CommonModule,
+    RouterOutlet,
+    FormsModule,
+    MatButtonModule,
+    MatDividerModule,
+    MatFormFieldModule,
+    MatIconModule,
+    MatInputModule,
+    MatSelectModule,
+    MatTableModule,
+    HttpClientModule,
+    ReactiveFormsModule,
+    ComponentDropDownComponent,
+    Component3Component,
+    GraphTableComponent,
+  ],
   templateUrl: './app.component.html',
-  styleUrl: './app.component.css'
+  styleUrl: './app.component.css',
 })
 export class AppComponent {
-  title = 'tt';
-  clickEvent:Subscription
+  title = 'Frontend-1';
 
-  constructor(private http: HttpClient,private sharedService:SharedService,  ) {
-    this.clickEvent=this.sharedService.getEvent().subscribe(()=>{
-      this.applyChange()
-    })
-    
-  }
+  constructor(private http: HttpClient) {}
 
   a: number = 0;
   b: number = 0;
 
   Wells: any;
   WellsName: any;
-  WellsVal: number[]=[];
+  WellsVal: number[] = [];
 
   Res: any;
   ResName: any;
-  ResVal: number[]=[];
+  ResVal: number[] = [];
 
-  TotalName: any ;
+  TotalName: any;
   TotalVal: any;
 
   chart1: any;
@@ -72,22 +83,23 @@ export class AppComponent {
 
   t1: any;
 
-  s1=0
-  s2=0
+  s1 = 0;
+  s2 = 0;
+  mt: null = null;
+  Total: any;
 
-  Total:any
+  color1: any = ['#E6B056', '#DD2CC7'];
+  color2: any = ['#B49566', '#DD2CC7', '#DD887C', '#4CA2A8'];
+  color3: any = ['#666EB4', '#AF74B9'];
 
-
-  resname=['Reserviour-1','Reserviour-2']
+  resname = ['Reserviour-1', 'Reserviour-2'];
+  resval: number[] = [];
 
   onRowClicked(dummy: any) {}
 
   displayedColumns: string[] = ['lable', 'num'];
 
   ngOnInit() {
-
-    console.log("Hello");
-    
     this.http.get('http://localhost:8000/showWell').subscribe((data: any) => {
       this.Wells = data;
 
@@ -96,53 +108,38 @@ export class AppComponent {
       this.WellsVal = this.Wells.map((data: any) => Number(data.wval));
 
       this.createChart2(this.WellsName, this.WellsVal);
-      
 
-      this.WellsVal.forEach((e:number) => {
-        this.s1+=e
+      this.WellsVal.forEach((e: number) => {
+        this.s1 += e;
       });
-
-
-
     });
-    
+
     this.http.get('http://localhost:8000/showRes').subscribe((data: any) => {
       this.Res = data;
       this.ResName = this.Res.map((data: any) => data.resName);
       this.ResVal = this.Res.map((data: any) => Number(data.resval));
-
-      console.log(this.ResName);
-      
+      this.resval = this.ResVal.map((data: number) => data);
 
       this.createChart3(this.ResName, this.ResVal);
 
-      this.ResVal.forEach((e:number) => {
-        this.s2+=e
+      this.ResVal.forEach((e: number) => {
+        this.s2 += e;
       });
 
-  
+      console.log(typeof this.resval);
 
-      this.Total=[ {name:'Storage Site-1',Val:this.s1},
+      this.Total = [
+        { name: 'Storage Site-1', Val: this.s1 },
 
-                    {name:"Storage site-2",Val:this.s2}]
+        { name: 'Storage site-2', Val: this.s2 },
+      ];
 
+      this.TotalName = this.Total.map((data: any) => data.name);
 
+      this.TotalVal = this.Total.map((data: any) => data.Val);
 
-      this.TotalName=this.Total.map((data:any)=>data.name)
-
-
-      this.TotalVal=this.Total.map((data:any)=>data.Val)
-
-      this.createChart1(this.TotalName,this.TotalVal)
-
+      this.createChart1(this.TotalName, this.TotalVal);
     });
-
-    console.log( typeof this.ResVal);
-
-    console.log( typeof this.WellsVal);
-    
-    
-
   }
 
   createChart1(Label: any, Data: any) {
@@ -163,12 +160,9 @@ export class AppComponent {
             },
           ],
         },
-      
       });
     }
   }
-
-
 
   createChart2(Label: any, Data: any) {
     if (!this.chartDisabled) {
@@ -188,7 +182,6 @@ export class AppComponent {
             },
           ],
         },
-      
       });
     }
   }
@@ -222,154 +215,133 @@ export class AppComponent {
 
     if (this.Wflag) {
       this.Wb1 = 'Save';
-    } 
-    
-    else
-     {
-
+    } else {
       this.Wb1 = 'Edit';
-      this.createChart2(this.WellsName,this.WellsVal)
-      this.s1=0
+      this.createChart2(this.WellsName, this.WellsVal);
+      this.s1 = 0;
 
-    this.WellsVal.forEach((num:any)=> this.s1+=num)
+      this.WellsVal.forEach((num: any) => (this.s1 += num));
 
-    try{
-      for (let i = 0; i < 4; i++) {
-        this.http.post(`http://localhost:8000/postWell/${this.WellsVal[i]}/${this.WellsName[i]}`,{},{responseType:'text'}).subscribe((data:any)=> console.log(data)
-        )
-        console.log("Sent",this.WellsVal[i]);  
+      try {
+        for (let i = 0; i < 4; i++) {
+          this.http
+            .post(
+              `http://localhost:8000/postWell/${this.WellsVal[i]}/${this.WellsName[i]}`,
+              {},
+              { responseType: 'text' }
+            )
+            .subscribe((data: any) => console.log(data));
+          console.log('Sent', this.WellsVal[i]);
+        }
+      } catch (err) {
+        console.log(err);
       }
-     }
-     catch(err)
-     {
-      console.log(err);
-     }
 
-  
-    this.Total=[ {name:'Site-1',Val:this.s1},
+      this.Total = [
+        { name: 'Site-1', Val: this.s1 },
 
-                  {name:"Site-2",Val:this.s2}]
+        { name: 'Site-2', Val: this.s2 },
+      ];
 
+      this.TotalName = this.Total.map((data: any) => data.name);
 
-    this.TotalName=this.Total.map((data:any)=>data.name)
+      this.TotalVal = this.Total.map((data: any) => data.Val);
 
-    this.TotalVal=this.Total.map((data:any)=>data.Val)
-
-    this.createChart1(this.TotalName,this.TotalVal)
-
-  
-  }  
-
+      this.createChart1(this.TotalName, this.TotalVal);
+    }
   }
 
   editButtonClicked2() {
-    
     this.Rflag = !this.Rflag;
     this.editflag2 = !this.editflag2;
     this.chartDisabled = !this.chartDisabled;
 
     if (this.Rflag) {
       this.Rb1 = 'Save';
-     
-    } 
-    
-      else 
-    {
-      this.Rb1 = 'Edit'
-      this.createChart3(this.ResName,this.ResVal)
+    } else {
+      this.Rb1 = 'Edit';
+      this.createChart3(this.ResName, this.ResVal);
 
-      this.s2=0
+      this.s2 = 0;
 
+      this.ResVal.forEach((num: any) => (this.s2 += num));
 
-    this.ResVal.forEach((num:any)=> this.s2+=num)
-    
+      this.Total = [
+        { name: 'Storage  Site-1', Val: this.s1 },
 
+        { name: 'Storage Site-2', Val: this.s2 },
+      ];
 
-    this.Total=[ {name:'Storage  Site-1',Val:this.s1},
+      this.TotalName = this.Total.map((data: any) => data.name);
 
-                  {name:"Storage Site-2",Val:this.s2}]
+      this.TotalVal = this.Total.map((data: any) => data.Val);
 
+      this.createChart1(this.TotalName, this.TotalVal);
 
-    this.TotalName=this.Total.map((data:any)=>data.name)
+      this.resval = this.ResVal.map((data: number) => data);
 
-    this.TotalVal=this.Total.map((data:any)=>data.Val)
-
-    this.createChart1(this.TotalName,this.TotalVal)
-
-
-    // try{
-    //   for (let i = 0; i < 4; i++) {
-    //     this.http.post(`http://localhost:8000/postRes/${this.ResVal[i]}/${(this.ResName[i])}`,{},{responseType:'text'}).subscribe((data:any)=> console.log(data)
-    //     )
-    //     console.log("Sent",this.ResVal[i]);  
-    //   }
-    //  }
-    //  catch(err)
-    //  {
-    //   console.log(err);
-    //  }
-
-
-    
-    
-  }
-  
-}
-
-
-
-
-
-  applyChange() {
-    this.WellsVal = this.Wells.map((data: any) => Number(data.wval));
-
-    this.ResVal = this.Res.map((data: any) => Number(data.resval));
-
-    this.createChart2(this.WellsName, this.WellsVal);
-
-    this.createChart3(this.ResName, this.ResVal);
-
-    this.s1=this.s2=0
-
-    this.WellsVal.forEach((num:any)=> this.s1+=num)
-
-    this.ResVal.forEach((num:any)=> this.s2+=num)
-
-
-    this.Total=[ {name:'Site-1',Val:this.s1},
-
-                  {name:"Site-2",Val:this.s2}]
-
-
-    this.TotalName=this.Total.map((data:any)=>data.name)
-
-    this.TotalVal=this.Total.map((data:any)=>data.Val)
-
-    this.createChart1(this.TotalName,this.TotalVal)
-
- 
+      try {
+        for (let i = 0; i < 2; i++) {
+          // console.log(this.resname[i], this.resval[i]);
+          this.http
+            .post(
+              `http://localhost:8000/postRes/${this.resval[i]}/${this.resname[i]}`,{},{responseType:'text'}
+            )
+            .subscribe((data: any) => console.log(data));
+        
+          console.log('Sent', this.ResVal[i]);
+        }
+      } catch (err) {
+        console.log(err);
+      }
+    }
   }
 
+  // applyChange() {
+  //   this.WellsVal = this.Wells.map((data: any) => Number(data.wval));
+
+  //   this.ResVal = this.Res.map((data: any) => Number(data.resval));
+
+  //   this.createChart2(this.WellsName, this.WellsVal);
+
+  //   this.createChart3(this.ResName, this.ResVal);
+
+  //   this.s1 = this.s2 = 0;
+
+  //   this.WellsVal.forEach((num: any) => (this.s1 += num));
+
+  //   this.ResVal.forEach((num: any) => (this.s2 += num));
+
+  //   this.Total = [
+  //     { name: 'Site-1', Val: this.s1 },
+
+  //     { name: 'Site-2', Val: this.s2 },
+  //   ];
+
+  //   this.TotalName = this.Total.map((data: any) => data.name);
+
+  //   this.TotalVal = this.Total.map((data: any) => data.Val);
+
+  //   this.createChart1(this.TotalName, this.TotalVal);
+  // }
 
   checkInputValue1(value: any, index: any) {
     const parsedValue = parseInt(value);
     if (parsedValue < 0) {
-      // Assuming you want to reset to 1 if the input is negative
+ 
       this.WellsVal[index] = 1;
     } else {
-      this.WellsVal[index]= parsedValue;
+      this.WellsVal[index] = parsedValue;
     }
   }
-
 
   checkInputValue2(value: any, index: number) {
     const parsedValue = parseInt(value);
     if (parsedValue < 0) {
-      // Assuming you want to reset to 1 if the input is negative
-      this.ResVal[index]= 1;
+
+      this.ResVal[index] = 1;
     } else {
       this.ResVal[index] = parsedValue;
     }
   }
-
 }

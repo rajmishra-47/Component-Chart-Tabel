@@ -246,7 +246,7 @@ align-items: flex-start;
 
 
 .bg{
-  background-color:	#D3D3D3;
+  background-color:	#e4e0e0;
 
   height:100%;
 }
@@ -264,3 +264,13 @@ align-items: flex-start;
   font-size: 12px;
 }
 
+
+
+.Color-1
+{
+  height: 25px;
+  width: 25px;
+ 
+  border-radius: 50%;
+  border: 2px solid black;
+}
