@@ -25,7 +25,10 @@
             <div class="tabel1-content">
               <div class="Names-1">
                 <p style="border-bottom: 1px solid black;">Total CO2 Captured</p>
-                <p style="border-bottom: 1px solid black;" *ngFor="let item of TotalName">{{ item }}</p>
+               
+                  
+                <p style="border-bottom: 1px solid black;" *ngFor="let item of TotalName let i = index"><mat-icon [ngStyle]="{'color': color1[i]}">circle</mat-icon>{{ item }}</p>
+              
               </div>
               <div class="Values-1">
                 <p style="border-bottom: 1px solid black;">{{s1+s2}} Tons</p>
@@ -67,9 +70,9 @@
                 <div class="Names-2">
                 <p style="border-bottom: 1px solid black;">Total CO2 Captured</p>
   
-                  <p style="border-bottom: 1px solid black;" *ngFor="let item of WellsName">
-                    <!-- <span *ngFor="let item of color3" [style.background-color]="item" class="Color-1"></span> -->
-                    {{ item }}</p>
+                  <p style="border-bottom: 1px solid black;" *ngFor="let item of WellsName let i=index">
+                    
+                    <mat-icon [ngStyle]="{'color': color2[i]}">circle</mat-icon> {{ item }}</p>
                 </div>
   
                 <div class="Val2">
@@ -100,7 +103,7 @@
           <div class="TableChart-3">
   
             <div class="TextButton-2">
-              <p><span class="Names">Reserviour</span></p>
+              <p><span class="Names">Reservoir</span></p>
               <button
                 mat-raised-button
                 color="primary"
@@ -119,9 +122,9 @@
               <div class="tabel3-content">
                 <div class="Names-2">
                   <p class="Res-1" style="border-bottom: 1px solid black;">Total CO2 captured</p>
-                 <p style="border-bottom: 1px solid black;" *ngFor="let item of resname">  
+                 <p style="border-bottom: 1px solid black;" *ngFor="let item of resname let i=index">  
                   <!-- <span *ngFor="let item of color3" [style.background-color]="item" class="Color-1"></span> -->
-                  {{ item }}</p>
+                  <mat-icon [ngStyle]="{'color': color3[i]}">circle</mat-icon>{{ item }}</p>
                 </div>
   
                 <div class="Val3">

@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 import { MatInputModule } from '@angular/material/input';
 import { MatSelectModule } from '@angular/material/select';
 import { MatFormFieldModule } from '@angular/material/form-field';
@@ -20,5 +20,8 @@ export class Component3Component {
 
 Names=['Captured','Injected']
 Values=[111111,111111]
+
+
+jsn:any={}
 
 }

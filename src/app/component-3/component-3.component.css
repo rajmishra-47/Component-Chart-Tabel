@@ -96,15 +96,24 @@
     display: flex;
     justify-content: space-between;
     font-size: larger;
-    margin-top: 20%;
+    margin-top: 15%;
     width: 100%;
   }
 
 
   .Values-1{
-    font-weight:bold;
+    font-weight: bold;
+    padding-left: 10px;
+  }
+
+
+
+  .V-1{
+    /* padding-left: 50px; */
   }
 
   .image2{
     margin-right: 20px;
   }
+
+

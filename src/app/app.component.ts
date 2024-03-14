@@ -78,6 +78,8 @@ export class AppComponent {
 
   Wb1: string = 'Edit';
   Rb1: string = 'Edit';
+  
+ 
 
   v: any = 1;
 
@@ -92,7 +94,7 @@ export class AppComponent {
   color2: any = ['#B49566', '#DD2CC7', '#DD887C', '#4CA2A8'];
   color3: any = ['#666EB4', '#AF74B9'];
 
-  resname = ['Reserviour-1', 'Reserviour-2'];
+  resname = ['Reservoir-1', 'Reservoir-2'];
   resval: number[] = [];
 
   onRowClicked(dummy: any) {}
