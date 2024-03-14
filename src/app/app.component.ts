@@ -46,7 +46,7 @@ import { response } from 'express';
   styleUrl: './app.component.css',
 })
 export class AppComponent {
-  title = 'Frontend-1';
+  title = 'Frontend';
 
   constructor(private http: HttpClient) {}
 
@@ -225,7 +225,7 @@ export class AppComponent {
       try {
         for (let i = 0; i < 4; i++) {
           this.http
-            .post(
+            .put(
               `http://localhost:8000/postWell/${this.WellsVal[i]}/${this.WellsName[i]}`,
               {},
               { responseType: 'text' }
@@ -281,16 +281,13 @@ export class AppComponent {
       this.resval = this.ResVal.map((data: number) => data);
 
       try {
-        for (let i = 0; i < 2; i++) {
+       
           // console.log(this.resname[i], this.resval[i]);
-          this.http
-            .post(
-              `http://localhost:8000/postRes/${this.resval[i]}/${this.resname[i]}`,{},{responseType:'text'}
-            )
-            .subscribe((data: any) => console.log(data));
+          this.http.put(`http://localhost:8000/postRes/${this.resval[0]}/Reservoir 1`,{},{responseType:'text'}).subscribe((data: any) => console.log(data));
+          this.http.put(`http://localhost:8000/postRes/${this.resval[1]}/Reservoir 2`,{},{responseType:'text'}).subscribe((data: any) => console.log(data));
         
-          console.log('Sent', this.ResVal[i]);
-        }
+     
+        
       } catch (err) {
         console.log(err);
       }
