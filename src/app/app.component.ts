@@ -94,7 +94,7 @@ export class AppComponent {
   color2: any = ['#B49566', '#DD2CC7', '#DD887C', '#4CA2A8'];
   color3: any = ['#666EB4', '#AF74B9'];
 
-  resname = ['Reservoir-1', 'Reservoir-2'];
+  resname = ['Reservoir 1', 'Reservoir 2'];
   resval: number[] = [];
 
   onRowClicked(dummy: any) {}
@@ -240,9 +240,9 @@ export class AppComponent {
       }
 
       this.Total = [
-        { name: 'Site-1', Val: this.s1 },
+        { name: 'Storage Site-1', Val: this.s1 },
 
-        { name: 'Site-2', Val: this.s2 },
+        { name: 'Storage Site-2', Val: this.s2 },
       ];
 
       this.TotalName = this.Total.map((data: any) => data.name);
